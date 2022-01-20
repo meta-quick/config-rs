@@ -2,7 +2,7 @@ use std::fmt;
 use std::fmt::Display;
 
 use serde::de::{Deserialize, Deserializer, Visitor};
-
+use serde::{Serialize, Deserialize};
 use crate::error::{ConfigError, Result, Unexpected};
 use crate::map::Map;
 
@@ -174,7 +174,7 @@ impl Display for ValueKind {
 }
 
 /// A configuration value.
-#[derive(Default, Debug, Clone, PartialEq)]
+#[derive(Default,Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct Value {
     /// A description of the original location of the value.
     ///
